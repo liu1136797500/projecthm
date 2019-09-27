@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/base-core" />
+    <file type="web" url="file://$PROJECT_DIR$/base-util" />
+    <file type="web" url="file://$PROJECT_DIR$/com-common" />
+    <file type="web" url="file://$PROJECT_DIR$/com-web" />
+    <file type="web" url="file://$PROJECT_DIR$/FG-mapper" />
+    <file type="web" url="file://$PROJECT_DIR$/FG-service" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/FG-mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/FG-service/pom.xml" />
+        <option value="$PROJECT_DIR$/base-core/pom.xml" />
+        <option value="$PROJECT_DIR$/base-util/pom.xml" />
+        <option value="$PROJECT_DIR$/com-common/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

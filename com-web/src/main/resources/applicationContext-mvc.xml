@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+">
+
+    <!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
+    <context:component-scan base-package="cn.itsource.controller" />
+    <context:component-scan base-package="cn.itsource.common" />
+
+    <!-- 放行静态资源管理 -->
+    <mvc:resources mapping="/static/**" location="/static/" />
+
+    <!-- 处理请求时返回json字符串的中文乱码问题 -->
+    <!-- <mvc:annotation-driven conversion-service="dateConversionService">  -->
+    <mvc:annotation-driven >
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+
+
+    <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+            p:prefix="/WEB-INF/view/" p:suffix=".jsp" />
+
+    <!-- 上传文件解析器 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104856700" /> <!-- 100M -->
+    </bean>
+
+
+    <!--spring  mvc 登录拦截器 -->  <!--<mvc:mapping path="/**/*.jhtml" /> 只拦截jhtml后缀名的路径 --><!-- 拦截所有路径 -->
+    <!--   <mvc:interceptors>
+          <mvc:interceptor>
+         <mvc:mapping path="/**" />
+         <bean class="cn.itsource.interceptor.LoginInterceptor" />
+         </mvc:interceptor>
+      </mvc:interceptors>
+   -->
+
+
+</beans>
